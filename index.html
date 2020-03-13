@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery From Basics</title>
+    <script src="scripts/jquer.js"></script>
+    <script>
+//         $(function(){
+//     //  $("p").mouseover(function(){
+//     //    $(this).hide();
+//     //  });
+
+// //mouseover mouseenter <==> mouseout mouseleave 
+
+
+
+
+
+//     //  $("#click").click(function(){
+//     //    $(".intro,.p").hide();
+//     //     $("ul li:first").hide();
+//     //     $("ul li:first-child").hide();
+//     //  });
+
+//     //  $("#click").mouseleave(function(){
+//     //    $(".intro,.p").show();
+//     //     $("ul li:first").show();
+//     //     $("ul li:first-child").show();
+//     //  });
+
+//    });
+
+
+
+// $(document).ready(function(){
+//     $("p").hover(alert('hi'),
+//     function(){
+//         alert('bye');
+//     }
+//     );
+// });
+
+
+$(function(){
+    $("#click").mousedown(
+        function(){
+            $(".intro").hide();
+        }
+    );
+    $("#click").mouseup(
+        function(){
+            $(".intro").show();
+        }
+    );
+
+$("ul").hover(
+    function(){
+    $("ul li:first-child").hide();
+}
+
+);
+$("ul").mouseout(
+
+function(){
+    $("ul li:first-child").show();
+}
+
+);
+
+// $("input").focus(
+
+// function(){
+//     $(this).css("background-color", "red");
+// }
+
+// );
+
+
+
+// $("input").blur(
+
+// function(){
+//     $(this).css("background-color","green");
+// }
+
+// );
+
+
+$("input").on({
+    keypress: function() {
+        alert("hi");
+    },
+    focus: function(){
+        $("p").css("background-color","red")
+    }
+});
+
+
+
+$("p").on({
+
+click : 
+    function() {
+        $(this).toggle();
+    }
+,
+mouseout: 
+    function() {
+        $(this).css("color", "yellow");
+    }
+,
+mouseover: 
+    function() {
+        $(this).css("color", "red");
+    }
+
+}
+);
+
+
+});
+
+    </script>
+</head>
+<body>
+    <p class="intro"> Click to Hide </p>
+    <p class="p">p class element</p>
+
+<ul>
+    <li>1st list item</li>
+    <li>2nd list item</li>
+    <li>3rd list item</li>
+</ul>
+
+<ul>
+    <li>1st list item</li>
+    <li>2nd list item</li>
+    <li>3rd list item</li>
+</ul>
+<ul>
+    <li>1st list item</li>
+    <li>2nd list item</li>
+    <li>3rd list item</li>
+</ul>
+
+<input type="submit" id="click">
+
+<input type="text">
+
+
+</body>
+</html>
