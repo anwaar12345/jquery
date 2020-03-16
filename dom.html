@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice JQuery</title>
+    <script src="scripts/jquer.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script>
+
+        $(document).ready( function(){
+            // $("#click").click(function(){
+            //     // var a = $("val1").val;
+            //     alert("a");
+            // });
+
+     $("button").click(
+         function(){
+            //  alert("clicked: "+ $("button").val());
+            $("#val1").val($("button").val());
+         }
+
+     );
+
+$("a").click(
+
+function(){
+    // $("a").text("wow").attr("href","#"); single Attributes
+//  $("a").append("DeadLink");
+$("a").remove();
+});
+
+$("#val1").click(function(){
+    // alert("clicked");
+$("p").toggleClass("p");
+
+
+}
+
+
+);
+
+
+$("p").parent().css("background-color","red");
+
+});
+
+    </script>
+    <style>
+.p{
+    color: aqua;
+}
+
+    </style>
+</head>
+<body>
+    
+<a href="#">#</a>
+<input type="text"  id="val1">
+
+<input type="submit" id="click">
+
+<div>
+
+    <p class="p"> Adding Class Example </p>
+
+</div>
+
+<button value="1">1</button>
+<button value="2">2</button>
+
+</body>
+</html>

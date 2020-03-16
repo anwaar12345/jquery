@@ -42,7 +42,7 @@
 // });
 
 
-$(function(){
+$(document).ready(function(){
     $("#click").mousedown(
         function(){
             $(".intro").hide();
@@ -87,12 +87,16 @@ function(){
 // );
 
 
-$("input").on({
+$("#input").on({
     keypress: function() {
         alert("hi");
     },
     focus: function(){
         $("p").css("background-color","red")
+    },
+    blur: function(){
+        $("p").css("background-color","White");
+        $("p").show();
     }
 });
 
@@ -102,12 +106,12 @@ $("p").on({
 
 click : 
     function() {
-        $(this).toggle();
+        $(this).toggleTo("slow","0.2");
     }
 ,
 mouseout: 
     function() {
-        $(this).css("color", "yellow");
+        $(this).css("color", "blue");
     }
 ,
 mouseover: 
@@ -117,6 +121,61 @@ mouseover:
 
 }
 );
+
+// $(".pclick").click(
+//     function () {
+//         $("#p").css("background-color","yellow");
+//     }
+// );
+
+$("#pclick").dblclick(
+    function () {
+        $("#p").css("background-color","black");
+    }
+);
+
+//animate properties of CSS and Queing 
+
+$("#pclick").click(
+    function(){
+        $("div").animate({ left : "200px", height : "200px", width: "200px", fontSize: "30px" }, 1000);
+        $("div").animate({ left : "0px", height : "100px", width: "100px", fontSize: "10px" }, "slow");
+    }
+);
+$("#click").click(
+
+function(){
+    $("div").hide("slow",
+    function(){
+        alert("the animation was hidden");
+    }
+    );
+    
+}
+);
+// Jquery Channing Multiples Methods on one one element
+$("#click").click(
+
+function(){
+    $("#channing").css("color","red").hide();
+}
+
+);
+
+$("#dome").click(
+
+function(){
+
+var a = $("#dom").value;
+alert(a);
+
+
+}
+
+);
+
+
+
 
 
 });
@@ -143,10 +202,17 @@ mouseover:
     <li>2nd list item</li>
     <li>3rd list item</li>
 </ul>
-
+<p id="p">Hover</p>
 <input type="submit" id="click">
-
-<input type="text">
+<div style="background-color: aqua; height: 100px; width:100px;" >
+click buttton
+</div>
+<input type="text" id="dome" placeholder="DOM">
+<input type="text" id="input">
+<h1 style="background-color: aqua; height: 100px; width:100px;" id="channing">
+    Channing Example
+</h1>
+<input type="submit" id="pclick">
 
 
 </body>
