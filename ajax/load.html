@@ -2,27 +2,100 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <title> Ajax </title>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
-    $.ajax({
-        url: "ajax.html", 
-        type: "get",
-        data: "a=2",
-        success: function(result){
-            console.log(result);
-            $("#div1").html(result);
-    }});
-  });
+
+  //basic way to load file data
+
+//   $("button").click(function(){
+//       // console.log(data);
+//      $("div").load("demo_test.txt",function(data,status,a){
+// if(status== "success"){
+//   alert("loaded Successfully "+status);
+// }if(status == "error"){
+//   alert("Error :"+a.status+" "+a.statusTxt);
+// }
+//      }).toggle("slow");
+//     }
+//   ); 
+
+// using get method basic ajax
+
+// $("button").click(function(){
+//   $.get("demo_test.txt", function(responseTxt, status ,xhr){
+//     alert("Data : "+responseTxt+" \nStatus : "+status+" xhr : "+xhr.status);
+    
+//   });
+// });
+
+
+// using get method Basics
+
+
+// $("button").click(function(){
+//   $.post("ajax.php",{
+//     name : "Ajax"
+//   },function(data, status,xhr){
+//     alert("Data : "+data+"\nStatus : "+status+"\nxhr status : "+xhr.status);
+//   });
+// });
+// $("button").click(function(){
+  
+// $.post("ajax.php",function(data,status,xhr){
+//   alert("fetched data with post from ajax php file -> "+data);
+// //$("div1").load(data);
+// });
+  
+
+// });
+
+//proper way to do AJAX in Jquery
+
+
+// $("button").click(function(e){
+
+//  //prevents the Default / existing Before Event 
+//  e.preventDefault;
+//   let name = $("input").val();
+//   $.ajax({
+//   url: "ajax.php",
+//   type: "post",
+// data: { name : name },
+//   success: function(result,status,xhr){
+//     $("#div1").html(result);
+//     alert("status : "+status+"\nxhrstatus : "+xhr.status);
+//   } 
+//   });
+// });
+
+$("button").click(function(e){
+e.preventDefault;
+let name = $("input").val();
+
+
+$.ajax({
+  url:  "ajax.php",
+  type: "post",
+  data: {name : name },
+  success: function(data,status,xhr){
+    $("#div1").html(data);
+    alert("data : "+data+"\nStatus : "+status);
+  }
+});
+}
+);
+
+
+
 });
 </script>
 </head>
 <body>
 
 <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
-
-<button>Get External Content</button>
+<input type="text">
+<button name="btn">Get External Content</button>
 
 </body>
 </html>
