@@ -54,7 +54,7 @@ if($option === "bubble"){
    echo "<h4> Bubble Sort </h4>";
     print("Before sorting: ");
 for($i = 0;$i < count($arr); $i++){
-    echo $arr[$i];
+    echo $arr[$i]." , ";
  
 }
 
@@ -77,12 +77,13 @@ if($option === "insertion"){
     insertionSort($arr, $n);
 
     echo "<h4> Insertion Sort </h4>";
+    echo "<h4> After sorting by using Insertion sort </h4>";
     for ($i = 0; $i < $n; $i++) {
     echo $arr[$i]." , "; 
 }    
 $end_time = microtime(true); 
 $execution_time = ($end_time - $start_time)/60;  
-echo "<br/> Execution time of string = ".$execution_time." sec"; 
+echo "<br/><br/> Execution time of string = ".$execution_time." sec"; 
 
 }
 
@@ -99,7 +100,7 @@ echo "<br/> Execution time of string = ".$execution_time." sec";
     <title>Algorithms</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="" method="post" style="margin:60px;">
         <input type="text" name="arr"  placeholder="Enter Comma Seperated Values..." style="width:200px;" required value="<?php echo implode(",",$arr); ?>">
         <input type="radio" value="bubble" name="option" <?php if($option==="bubble")echo "checked";?>> Buble Sort Algorithm | <input type="radio" value="insertion" name="option"> Insertion Sort Algorithm
         <input type="submit" name="submit">
