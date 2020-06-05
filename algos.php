@@ -89,6 +89,10 @@ echo "<br/><br/> Execution time of string = ".$execution_time." sec";
 
 
 
+}else{
+    $option = "";
+    $arr = "";
+    
 }
 
 ?>
@@ -102,7 +106,7 @@ echo "<br/><br/> Execution time of string = ".$execution_time." sec";
 <body>
 <form action="" method="post" style="margin:60px;">
         <input type="text" name="arr"  placeholder="Enter Comma Seperated Values..." style="width:200px;" required value="<?php echo implode(",",$arr); ?>">
-        <input type="radio" value="bubble" name="option" <?php if($option==="bubble")echo "checked";?>> Buble Sort Algorithm | <input type="radio" value="insertion" name="option"> Insertion Sort Algorithm
+        <input type="radio" value="bubble" name="option" <?php if($option==="bubble") echo "checked";?>> Buble Sort Algorithm | <input type="radio" value="insertion" name="option" <?php if($option==="insertion") echo "checked";?>> Insertion Sort Algorithm
         <input type="submit" name="submit">
     </form>
 </body>
